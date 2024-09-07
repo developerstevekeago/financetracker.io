@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Finance tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Finance Tracker.</h1>
+        </div>
+    </header>
+
+    <section class="main1">
+        <div class="side-bar">
+            <a href="#" data-page="profile">
+                <i class="fas fa-user"></i>
+                <p>Profile</p>
+            </a>
+            <a href="#" data-page="money-in">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <p>Money in</p>
+            </a>
+            <a href="#" data-page="money-out">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <p>Money out</p>
+            </a>
+            <a href="#" data-page="debts">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <p>Spend</p>
+            </a>
+            <a href="#" data-page="summary">
+                <i class="fa-solid fa-gear"></i>
+                <p>Settings</p>
+            </a>
+        </div>
+        
+        <div class="content page" id="profile-content">
+            <div class="total-money">
+                <h1>CURRENT BALANCE</h1>
+                <div class="total">
+                    <p>ksh</p>
+                    <p id="balance-amount" style="color: rgb(21, 204, 21);">0.00</p>
+                </div>
+                <h1>MY ACCOUNTS</h1>
+                <div class="accounts">
+                    <div class="bank">
+                        <h3>Equity</h3>
+                        <div class="statement">
+                            <p>Account balance</p>
+                            <p id="equity-balance" style="color: rgb(21, 204, 21);" >0.00</p>
+                        </div>
+                    </div>
+                    <div class="bank">
+                        <h3>Mpesa</h3>
+                        <div class="statement">
+                            <p>Account balance</p>
+                            <p id="mpesa-balance" style="color: rgb(21, 204, 21);">0.00</p>
+                        </div>
+                    </div>
+                    <div class="bank">
+                        <h3>Airtel</h3>
+                        <div class="statement">
+                            <p>Account balance</p>
+                            <p id="airtel-balance" style="color: rgb(21, 204, 21);">0.00</p>
+                        </div>
+                    </div>
+                    <div class="bank">
+                        <h3>PayPal</h3>
+                        <div class="statement">
+                            <p>Account balance</p>
+                            <p id="paypal-balance" style="color: rgb(21, 204, 21);">0.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        
+        <div class="content page" id="money-in-content" style="display: none;">
+            <h1>Add Money</h1>
+            <form id="add-money-form">
+                <label for="account">Select Account:</label>
+                <select id="account" name="account">
+                    <option value="equity">Equity</option>
+                    <option value="mpesa">Mpesa</option>
+                    <option value="airtel">Airtel</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+                <br>
+                <label for="amount-input">Amount:</label>
+                <input type="number" id="amount-input" name="amount-input" placeholder="Enter amount" min="0" step="0.01">
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="content page" id="money-out-content" style="display: none;">
+            <h1>Spend Money</h1>
+            <form id="spend-form">
+                <label for="spend-type">Type of Spend:</label>
+                <select id="spend-type" name="spend-type">
+                    <option value="clothing">Clothing</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="emergencies">Emergencies</option>
+                    <option value="credit">Credit</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="housing">Housing</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="education">Education</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="acnt-type">
+                    <span>
+                        <input type="radio" name="account" id="equity" value="equity"> 
+                        <label for="equity">Equity</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="account" id="mpesa" value="mpesa">
+                        <label for="mpesa">Mpesa</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="account" id="airtel" value="airtel">
+                        <label for="airtel">Airtel</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="account" id="paypal" value="paypal">
+                        <label for="paypal">PayPal</label>
+                    </span>
+                </div>
+                <br>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount">
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="content page" id="debts-content" style="display: none;">
+            <div class="savings">
+                <div class="box">
+                    <h1>CLOTHING</h1>
+                    <p id="clothing-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>FOOD</h1>
+                    <p id="food-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>TRANSPORT</h1>
+                    <p id="transport-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>EMERGENCIES</h1>
+                    <p id="emergency-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>CREDIT</h1>
+                    <p id="credit-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>ENTERTAINMENT</h1>
+                    <p id="entertainment-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>HOUSING</h1>
+                    <p id="housing-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>HEALTHCARE</h1>
+                    <p id="healthcare-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>EDUCATION</h1>
+                    <p id="education-amount">0.00</p>
+                </div>
+                <div class="box">
+                    <h1>OTHER</h1>
+                    <p id="other-amount">0.00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content page" id="summary-content" style="display: none;">
+            <h1>Settings</h1>
+            <div class="settings-section">
+                <h2>Account Management</h2>
+                <button id="add-account-btn">Add Account</button>
+                <button id="reset-account-btn">Reset Account</button>
+                <ul id="account-list">
+                    <!-- list of accounts -->
+                </ul>
+            </div>
+            <div class="settings-section">
+                <h2>Transaction Categories</h2>
+                <button id="add-category-btn">Add Category</button>
+                <ul id="category-list">
+                    <!-- list of categories -->
+                </ul>
+            </div>
+            <div class="settings-section">
+                <h2>Security</h2>
+                <button id="change-password-btn">Change Password</button>
+                <button id="enable-2fa-btn">Enable 2FA</button>
+            </div>
+            <div class="settings-section">
+                <h2>Data Management</h2>
+                <button id="export-data-btn">Export Data</button>
+                <button id="import-data-btn">Import Data</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
